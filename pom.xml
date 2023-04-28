@@ -40,6 +40,14 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy-reactive</artifactId>
     </dependency>
+    		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-vertx</artifactId>
+		</dependency>
+    <dependency>
+    <groupId>io.quarkus</groupId>
+    <artifactId>quarkus-rest-client</artifactId>
+</dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-websockets</artifactId>
