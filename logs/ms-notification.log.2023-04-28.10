@@ -1,0 +1,33 @@
+2023-04-28 21:24:43.272 [Quarkus Main Thread] INFO  null.null:-1 UT026003: Adding annotated server endpoint class sfs.notification.notification.NotificationSocket for path /sfs-websocket
+2023-04-28 21:24:43.282 [main] INFO  null.null:-1 Attempting to start live reload endpoint to recover from previous Quarkus startup failure
+2023-04-28 21:24:43.293 [Quarkus Main Thread] ERROR null.null:-1 Error running Quarkus: java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at io.quarkus.runner.bootstrap.StartupActionImpl$1.run(StartupActionImpl.java:104)
+	at java.base/java.lang.Thread.run(Thread.java:831)
+Caused by: java.lang.ExceptionInInitializerError
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at io.quarkus.runtime.Quarkus.run(Quarkus.java:70)
+	at io.quarkus.runtime.Quarkus.run(Quarkus.java:44)
+	at io.quarkus.runtime.Quarkus.run(Quarkus.java:124)
+	at io.quarkus.runner.GeneratedMain.main(Unknown Source)
+	... 6 more
+Caused by: java.lang.RuntimeException: Failed to start quarkus
+	at io.quarkus.runner.ApplicationImpl.<clinit>(Unknown Source)
+	... 15 more
+Caused by: javax.websocket.DeploymentException: UT003012: Method public void sfs.notification.notification.NotificationSocket.onOpen(javax.websocket.Session,sfs.notification.dtos.LoginDTO) has invalid parameters at locations [1]
+	at io.undertow.websockets.annotated.BoundMethod.<init>(BoundMethod.java:75)
+	at io.undertow.websockets.annotated.AnnotatedEndpointFactory.create(AnnotatedEndpointFactory.java:99)
+	at io.undertow.websockets.ServerWebSocketContainer.addEndpointInternal(ServerWebSocketContainer.java:577)
+	at io.undertow.websockets.ServerWebSocketContainer.addEndpoint(ServerWebSocketContainer.java:550)
+	at io.quarkus.websockets.client.runtime.WebsocketCoreRecorder.createServerContainer(WebsocketCoreRecorder.java:210)
+	at io.quarkus.deployment.steps.WebsocketClientProcessor$deploy1070688649.deploy_0(Unknown Source)
+	at io.quarkus.deployment.steps.WebsocketClientProcessor$deploy1070688649.deploy(Unknown Source)
+	... 16 more
+
