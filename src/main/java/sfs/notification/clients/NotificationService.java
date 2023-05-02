@@ -11,14 +11,14 @@ import io.smallrye.mutiny.Uni;
 import sfs.notification.dtos.ChatResponseDTO;
 
 
-@Path("/framework/dina")
-@RegisterRestClient(configKey = "ms-provider-report-api")
+@Path("/api/framework/dina")
+@RegisterRestClient(configKey = "api-framework-rest")
 public interface NotificationService {
 
     @POST
     @Path("/chatUtil")
     @Produces(MediaType.APPLICATION_JSON)
-    Uni<ChatResponseDTO>  chatUtil(String datos) throws Exception;
+    Uni<ChatResponseDTO>  chatUtil(String datos);
 
 }
 

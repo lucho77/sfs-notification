@@ -17,6 +17,7 @@ public class LoginDTO {
 	  private boolean regionalizacion;
 	  private String mail;
 	  private String reporteInicio;
+	  private boolean delete;
 
 	  
 	public String getUsername() {
@@ -108,6 +109,12 @@ public class LoginDTO {
 	}
 	public void setPass(String pass) {
 		this.pass = pass;
+	}
+	public boolean isDelete() {
+		return delete;
+	}
+	public void setDelete(boolean delete) {
+		this.delete = delete;
 	}
 
 	
