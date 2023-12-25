@@ -1,7 +1,7 @@
 package sfs.notification.exceptions;
 
-import javax.ws.rs.core.Response;
 
+import jakarta.ws.rs.core.Response;
 import sfs.notification.dtos.ReportStatusDTO;
 
 public class NotificationException extends RuntimeException {

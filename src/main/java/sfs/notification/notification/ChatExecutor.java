@@ -1,28 +1,28 @@
 package sfs.notification.notification;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.event.Observes;
-import javax.inject.Inject;
-
+import org.eclipse.microprofile.config.Config;
+import org.eclipse.microprofile.config.ConfigProvider;
 import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.eclipse.microprofile.reactive.messaging.Emitter;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
-import org.jboss.resteasy.reactive.multipart.FileUpload;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.gson.Gson;
+
 import io.quarkus.scheduler.Scheduled;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.event.Observes;
+import jakarta.inject.Inject;
 import sfs.notification.clients.NotificationService;
-import sfs.notification.clients.UploadResource;
 import sfs.notification.dtos.ChatResponseDTO;
+import sfs.notification.dtos.ChatUtilDTO;
 import sfs.notification.dtos.LoginDTO;
+import sfs.notification.enumeration.ChatEnum;
 
 @ApplicationScoped
 public class ChatExecutor {
@@ -31,7 +31,6 @@ public class ChatExecutor {
 	@RestClient
 	NotificationService notificationService;
 	@RestClient
-	UploadResource uploadResource;
 	@Inject
 	@Channel("idDeploying")
 	Emitter<ChatResponseDTO> emitter;
@@ -39,23 +38,9 @@ public class ChatExecutor {
 	@Channel("getNewNotifica")
 	Emitter<ChatResponseDTO> emitterNotifica;
 
-	@Scheduled(every = "30s")
-	public void isDeploying() {
-		
-		String fileName = null;
-		File file = new File("/tmp/Ticket.pdf");
-		try {
-		    InputStream targetStream = new FileInputStream(file);
-			uploadResource.multipart( "impresion-poliza-ms-dev","nuevo",targetStream);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
 
 	
-	/*
-	@Scheduled(every = "1600s")
+	@Scheduled(every = "16600s")
 	public void isDeploying() {
 
 		if (users.size() > 0) {
@@ -82,7 +67,7 @@ public class ChatExecutor {
 		}
 	}
 
-	@Scheduled(every = "1230s")
+	@Scheduled(every = "124230s")
 	public void getNotificas() {
 
 		if(users.size()>0) {
@@ -116,7 +101,7 @@ public class ChatExecutor {
 		
 
 	}
-*/
+
 	public void adduser(@Observes LoginDTO loginDTO) {
 		if (loginDTO.isDelete()) {
 			users.remove(loginDTO);

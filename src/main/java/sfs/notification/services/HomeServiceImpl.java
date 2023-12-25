@@ -1,8 +1,8 @@
 package sfs.notification.services;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 import sfs.notification.repository.IHomeRepository;
 @ApplicationScoped
 
